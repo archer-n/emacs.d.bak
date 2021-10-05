@@ -17,6 +17,7 @@
 (require 'init-basic)
 (require 'init-elpa)
 (require 'init-package)
+(require 'init-xref)
 (require 'init-exec-path)
 (require 'init-editing-utils)
 (require 'init-windows)
@@ -32,6 +33,7 @@
 (require 'init-lsp)
 (require 'init-javascript)
 (require 'init-yaml)
+
 (provide 'init)
 
 ;; Local Variables:

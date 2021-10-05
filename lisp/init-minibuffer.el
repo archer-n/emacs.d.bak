@@ -7,9 +7,42 @@
 
 (use-package vertico
   :ensure t
-  :hook (after-init . vertico-mode)
+  :hook (after-init . vertico-mode))
+
+(use-package orderless
+  :ensure t
+  :custom (completion-styles '(basic partial-completion orderless)))
+
+(use-package consult
+  :after vertico
+  :ensure t
+  :init
+  (defun archer/consult-grep-at-point (&optional dir initial)
+    (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
+                                    (symbol-name s))))
+    (consult-ripgrep dir initial))
+  :bind (("M-s i"              . consult-imenu)
+         ([remap bookmark-jump]      . consult-bookmark)
+         ([remap recentf-open-files] . consult-recent-file)
+         ([remap evil-show-marks]    . consult-mark)
+         ("M-s /" . consult-line)
+         ("M-?" . archer/consult-grep-at-point))
   :custom
-  (vertico-sort-function nil))
+  (consult-preview-key (kbd "M-."))
+  (consult-project-root-function #'projectile-project-root))
+
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package marginalia
+  :after vertico
+  :ensure t
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
 
 (use-package embark
   :ensure t
@@ -22,31 +55,10 @@
   (embark-collect-live-initial-delay 0.15)
   (embark-collect-live-update-delay 0.15))
 
-(use-package consult
-  :ensure t
-  :bind (("M-s i"              . consult-imenu)
-         ([remap bookmark-jump]      . consult-bookmark)
-         ([remap recentf-open-files] . consult-recent-file)
-         ([remap evil-show-marks]    . consult-mark)
-         ("M-s /" . consult-line))
-  :custom
-  (consult-preview-key nil)
-  (consult-fontify-preserve nil)
-  (consult-async-min-input 2)
-  (consult-async-refresh-delay 0.15)
-  (consult-async-input-throttle 0.2)
-  (consult-async-input-debounce 0.1)
-  (consult-project-root-function #'projectile-project-root))
-
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
   :ensure t
   :after embark consult)
-
-;; orderless
-(use-package orderless
-  :ensure t
-  :custom (completion-styles '(substring orderless)))
 
 (provide 'init-minibuffer)
 ;;; init-minibuffer.el ends here

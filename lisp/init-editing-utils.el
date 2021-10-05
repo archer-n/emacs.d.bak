@@ -97,5 +97,7 @@
   :bind (:map prog-mode-map
               ("C-c '" . separedit)))
 
+(use-package sudo-edit)
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
