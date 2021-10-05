@@ -41,9 +41,9 @@
         ))
 
 (setq org-directory "~/org")
-(setq org-default-notes-file (concat org-directory "/inbox.org.gpg"))
+(setq org-default-notes-file (concat org-directory "/inbox.org"))
 (setq org-agenda-files (list org-default-notes-file
-                             (concat org-directory "/gtd.org.gpg")))
+                             (concat org-directory "/gtd.org")))
 
 
 (setq org-refile-use-cache nil)
