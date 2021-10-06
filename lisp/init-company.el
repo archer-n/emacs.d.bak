@@ -5,7 +5,7 @@
 
 (use-package company
   :ensure t
-  :hook (prog-mode . company-mode)
+  :hook (after-init . global-company-mode)
   :bind (:map company-mode-map
          ([remap completion-at-point] . company-complete)
          :map company-active-map
