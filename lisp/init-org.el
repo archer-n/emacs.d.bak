@@ -8,7 +8,9 @@
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
-(setq org-log-done t
+(setq org-startup-indented t
+      org-src-tab-acts-natively t
+      org-log-done t
       org-edit-timestamp-down-means-later t
       org-hide-emphasis-markers t
       org-catch-invisible-edits 'show
@@ -16,7 +18,9 @@
       org-fast-tag-selection-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
-      org-tags-column 80)
+      org-tags-column 80
+      org-fontify-done-headline t
+      org-hide-leading-stars t)
 
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
