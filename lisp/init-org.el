@@ -207,5 +207,13 @@
    'org-babel-load-languages
    `((emacs-lisp . t))))
 
+(use-package org-pomodoro
+  :ensure t
+  :init
+  (with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
+  :custom
+  (org-pomodoro-keep-killed-pomodoro-time t))
+
 (provide 'init-org)
 ;;; init-org.el ends here

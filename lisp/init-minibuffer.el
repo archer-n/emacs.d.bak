@@ -17,10 +17,6 @@
   :after vertico
   :ensure t
   :init
-  (defun archer/consult-grep-at-point (&optional dir initial)
-    (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
-                                    (symbol-name s))))
-    (consult-ripgrep dir initial))
   :bind (([remap switch-to-buffer] . consult-buffer)
          ([remap switch-to-buffer-other-window] . consult-buffer-other-window)
          ([remap goto-line] . consult-goto-line)
@@ -29,7 +25,7 @@
          ([remap recentf-open-files] . consult-recent-file)
          ([remap evil-show-marks]    . consult-mark)
          ("M-s /" . consult-line)
-         ("M-?" . archer/consult-grep-at-point))
+         ("M-?" . consult-ripgrep))
   :custom
   (consult-preview-key (kbd "M-."))
   (consult-project-root-function #'projectile-project-root))

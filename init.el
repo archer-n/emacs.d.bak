@@ -39,6 +39,7 @@
 (require 'init-basic)
 (require 'init-elpa)
 (require 'init-package)
+(require 'init-scratch)
 (require 'init-xref)
 (require 'init-exec-path)
 (require 'init-editing-utils)
