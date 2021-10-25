@@ -12,5 +12,7 @@
   :init
   (add-hook 'after-init-hook 'immortal-scratch-mode))
 
+(use-package scratch)
+
 (provide 'init-scratch)
 ;;; init-scratch.el ends here
