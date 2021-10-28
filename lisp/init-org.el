@@ -205,7 +205,29 @@
 (with-eval-after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
-   `((emacs-lisp . t))))
+   (seq-filter
+    (lambda (pair)
+      (featurep (intern (concat "ob-" (symbol-name (car pair))))))
+    '((C . t)
+      (R . t)
+      (dot . t)
+      (emacs-lisp . t)
+      (gnuplot . t)
+      (haskell . nil)
+      (latex . t)
+      (ledger . t)
+      (ocaml . nil)
+      (octave . nil)
+      (plantuml . t)
+      (python . t)
+      (java . t)
+      (ruby . t)
+      (screen . nil)
+      (sh . t) ;; obsolete
+      (shell . t)
+      (sql . t)
+      (sqlite . t)
+      (js . t)))))
 
 (use-package org-pomodoro
   :ensure t
