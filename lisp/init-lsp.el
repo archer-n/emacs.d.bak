@@ -9,12 +9,14 @@
   (unless (derived-mode-p 'emacs-lisp-mode)
     (lsp-deferred)))
 
+
 (use-package lsp-mode
   :ensure t
   :hook (prog-mode . dotfiles--lsp-deferred-if-supported)
   :bind (:map lsp-mode-map
          ("C-c d" . lsp-describe-thing-at-point)
-         ([remap xref-find-references] . lsp-find-references))
+         ([remap xref-find-references] . lsp-find-references)
+         ("C-." . lsp-find-implementation))
   :custom
   (lsp-keymap-prefix "C-c l")
   (lsp-diagnostics-disabled-modes '(js-mode))
@@ -33,7 +35,44 @@
   (lsp-log-io nil)                       ;; debug only
   (lsp-auto-guess-root t)                ;; auto guess root
   (lsp-keep-workspace-alive nil)         ;; auto kill lsp server
-  (lsp-eldoc-enable-hover nil))          ;; disable eldoc hover
+  (lsp-eldoc-enable-hover nil)           ;; disable eldoc hover
+  :init
+   ;; Enable LSP in org babel
+    ;; https://github.com/emacs-lsp/lsp-mode/issues/377
+    (cl-defmacro lsp-org-babel-enable (lang)
+      "Support LANG in org source code block."
+      (cl-check-type lang stringp)
+      (let* ((edit-pre (intern (format "org-babel-edit-prep:%s" lang)))
+             (intern-pre (intern (format "lsp--%s" (symbol-name edit-pre)))))
+        `(progn
+           (defun ,intern-pre (info)
+             (setq buffer-file-name (or (->> info caddr (alist-get :file))
+                                        "org-src-babel.tmp"))
+             (when (fboundp 'lsp-deferred)
+                  ;; Avoid headerline conflicts
+                  (setq-local lsp-headerline-breadcrumb-enable nil)
+                  (lsp-deferred)))
+           (put ',intern-pre 'function-documentation
+                (format "Enable lsp in the buffer of org source block (%s)."
+                        (upcase ,lang)))
+
+           (if (fboundp ',edit-pre)
+               (advice-add ',edit-pre :after ',intern-pre)
+             (progn
+               (defun ,edit-pre (info)
+                 (,intern-pre info))
+               (put ',edit-pre 'function-documentation
+                    (format "Prepare local buffer environment for org source block (%s)."
+                            (upcase ,lang))))))))
+
+    (defvar org-babel-lang-list
+      '("go" "python" "ipython" "ruby" "js" "css" "sass" "C" "rust" "java" "cpp" "c++" "shell"))
+    
+    (dolist (lang org-babel-lang-list)
+      (eval `(lsp-org-babel-enable ,lang))))
+
+(use-package lsp-java
+  :after lsp-mode)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
