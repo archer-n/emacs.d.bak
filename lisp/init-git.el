@@ -67,12 +67,7 @@
   :custom
   (browse-at-remote-add-line-number-if-no-region-selected nil))
 
-;; Setup gitignore mode
-(use-package conf-mode
-  :ensure nil
-  :mode (("\\.gitignore\\'"     . conf-unix-mode)
-         ("\\.gitconfig\\'"     . conf-unix-mode)
-         ("\\.gitattributes\\'" . conf-unix-mode)))
+(use-package git-modes)
 
 (use-package git-timemachine
   :bind (( "C-x v t" . git-timemachine-toggle)))
