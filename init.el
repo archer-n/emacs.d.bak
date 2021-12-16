@@ -58,6 +58,7 @@
 (require 'init-lsp)
 (require 'init-javascript)
 (require 'init-yaml)
+(require 'init-translate)
 (require 'init-beancount)
 (require 'init-rss)
 (provide 'init)
