@@ -59,6 +59,7 @@
 (require 'init-javascript)
 (require 'init-yaml)
 (require 'init-beancount)
+(require 'init-rss)
 (provide 'init)
 
 ;; Local Variables:
