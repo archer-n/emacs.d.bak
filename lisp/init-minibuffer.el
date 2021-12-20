@@ -22,8 +22,7 @@
          ([remap goto-line] . consult-goto-line)
          ("M-s i"              . consult-imenu)
          ([remap bookmark-jump]      . consult-bookmark)
-         ([remap recentf-open-files] . consult-recent-file)
-         ([remap evil-show-marks]    . consult-mark)
+         ("M-s r" . consult-recent-file)
          ("M-s /" . consult-line)
          ("M-?" . consult-ripgrep))
   :custom
