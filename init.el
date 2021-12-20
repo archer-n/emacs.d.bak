@@ -57,6 +57,7 @@
 (require 'init-ctags)
 (require 'init-lsp)
 (require 'init-javascript)
+(require 'init-web)
 (require 'init-yaml)
 (require 'init-translate)
 (require 'init-beancount)
