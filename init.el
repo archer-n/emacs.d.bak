@@ -59,6 +59,7 @@
 (require 'init-javascript)
 (require 'init-web)
 (require 'init-yaml)
+(require 'init-java)
 (require 'init-translate)
 (require 'init-beancount)
 (require 'init-rss)

@@ -7,28 +7,30 @@
   :ensure t
   :hook (after-init . global-company-mode)
   :bind (:map company-mode-map
-         ([remap completion-at-point] . company-complete)
+              ("M-/" . company-complete)
+              ([remap completion-at-point] . company-complete)
          :map company-active-map
          ("C-s"     . company-filter-candidates)
          ([tab]     . company-complete-common-or-cycle)
-         ([backtab] . company-select-previous-or-abort))
+         ([backtab] . company-select-previous-or-abort)
+         ("C-d" . company-show-company-show-doc-buffer))
+  :config
+  (setq-default company-dabbrev-other-buffers 'all
+                  company-tooltip-align-annotations t
+                  company-dabbrev-downcase nil
+                  company-dabbrev-ignore-case t)
   :custom
+  (company-minimum-prefix-length 1)
   (company-idle-delay 0)
   ;; Easy navigation to candidates with M-<n>
   (company-show-quick-access t)
   (company-require-match nil)
-  (company-minimum-prefix-length 3)
   (company-tooltip-width-grow-only t)
   (company-tooltip-align-annotations t)
-  ;; complete `abbrev' only in current buffer and make dabbrev case-sensitive
-  (company-dabbrev-other-buffers nil)
-  (company-dabbrev-ignore-case nil)
-  (company-dabbrev-downcase nil)
-  ;; make dabbrev-code case-sensitive
-  (company-dabbrev-code-ignore-case nil)
-  (company-dabbrev-code-everywhere t)
   ;; No icons
   (company-format-margin-function nil))
+
+
 
 (provide 'init-company)
 ;;; init-company.el ends here

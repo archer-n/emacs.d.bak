@@ -9,10 +9,10 @@
   (unless (derived-mode-p 'emacs-lisp-mode)
     (lsp-deferred)))
 
-
 (use-package lsp-mode
   :ensure t
-  :hook (prog-mode . dotfiles--lsp-deferred-if-supported)
+  :hook ((prog-mode . dotfiles--lsp-deferred-if-supported)
+         (lsp-mode . lsp-enable-which-key-integration))
   :bind (:map lsp-mode-map
          ("C-c d" . lsp-describe-thing-at-point)
          ([remap xref-find-references] . lsp-find-references)
@@ -71,8 +71,8 @@
     (dolist (lang org-babel-lang-list)
       (eval `(lsp-org-babel-enable ,lang))))
 
-(use-package lsp-java
-  :after lsp-mode)
+
+(use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
