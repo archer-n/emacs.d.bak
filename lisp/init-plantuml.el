@@ -23,14 +23,6 @@
             (lambda ()
               (setq-local company-backends '(company-plantuml
                                              (company-dabbrev-code company-keywords)
-                                             company-dabbrev))))
-  :custom
-  (setq org-plantuml-jar-path
-        (expand-file-name "~/workspace/tools/plantuml-1.2021.16.jar")))
-
-
-
-
-
+                                             company-dabbrev)))))
 (provide 'init-plantuml)
 ;;; init-plantuml.el ends here

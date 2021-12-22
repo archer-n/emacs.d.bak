@@ -250,6 +250,9 @@
 
 (advice-add 'org-babel-execute-src-block :before #'archer/org-babel-execute-src-block)
 
+;; org-plantuml
+(setq org-plantuml-jar-path
+        (expand-file-name "~/workspace/tools/plantuml-1.2021.16.jar"))
 
 (use-package org-pomodoro
   :ensure t
@@ -258,6 +261,12 @@
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
   :custom
   (org-pomodoro-keep-killed-pomodoro-time t))
+(org-download-enable)
+
+(use-package org-download
+  :hook (org-mode . org-download)
+  :config
+  (setq-default org-download-image-dir "~/org/images"))
 
 (provide 'init-org)
 ;;; init-org.el ends here
