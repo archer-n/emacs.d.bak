@@ -49,6 +49,7 @@
 (require 'init-ibuffer)
 (require 'init-tools)
 (require 'init-org)
+(require 'init-plantuml)
 (require 'init-git)
 (require 'init-projectile)
 (require 'init-company)
