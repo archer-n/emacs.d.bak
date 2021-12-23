@@ -250,10 +250,6 @@
 
 (advice-add 'org-babel-execute-src-block :before #'archer/org-babel-execute-src-block)
 
-;; org-plantuml
-(setq org-plantuml-jar-path
-        (expand-file-name "~/workspace/tools/plantuml-1.2021.16.jar"))
-
 (use-package org-pomodoro
   :ensure t
   :init
@@ -264,7 +260,8 @@
 (org-download-enable)
 
 (use-package org-download
-  :hook (org-mode . org-download)
+  :init
+  (add-hook 'dired-mode-hook 'org-download-enable)
   :config
   (setq-default org-download-image-dir "~/org/images"))
 

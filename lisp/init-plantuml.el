@@ -23,6 +23,12 @@
             (lambda ()
               (setq-local company-backends '(company-plantuml
                                              (company-dabbrev-code company-keywords)
-                                             company-dabbrev)))))
+                                             company-dabbrev))))
+  :config
+  (setq-default plantuml-default-exec-mode 'jar)
+  (setq-default plantuml-jar-path "~/workspace/tools/plantuml-1.2021.16.jar")
+  ;; org-plantuml
+  (setq org-plantuml-jar-path plantuml-jar-path))
+
 (provide 'init-plantuml)
 ;;; init-plantuml.el ends here
