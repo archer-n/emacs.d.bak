@@ -265,5 +265,14 @@
   :config
   (setq-default org-download-image-dir "~/org/images"))
 
+;; Export pdf to support Chinese
+(with-eval-after-load 'org
+  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                                "xelatex -interaction nonstopmode %f"))
+  (setq org-latex-default-packages-alist
+        (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist)))
+
+(use-package gnuplot)
+
 (provide 'init-org)
 ;;; init-org.el ends here
