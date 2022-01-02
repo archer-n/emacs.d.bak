@@ -8,6 +8,8 @@
   (use-package dap-java :ensure nil)
   :hook ((java-mode . lsp-deferred))
   :config
+  ;; current VSCode defaults
+  (setq lsp-java-vmargs '("-XX:+UseParallelGC" "-XX:GCTimeRatio=4" "-XX:AdaptiveSizePolicyWeight=90" "-Dsun.zip.disableMemoryMapping=true" "-Xmx4G" "-Xms512m"))
   ;; lombok
   (let ((lombok-jar-path (expand-file-name "~/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar")))
     (setq lsp-java-vmargs (list (concat "-javaagent:" lombok-jar-path))))
