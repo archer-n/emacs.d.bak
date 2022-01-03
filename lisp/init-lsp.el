@@ -39,6 +39,7 @@
   (lsp-headerline-breadcrumb-enable nil) ;; keep headline clean
   (lsp-modeline-code-actions-enable nil) ;; keep modeline clean
   (lsp-modeline-diagnostics-enable nil)  ;; as above
+  (lsp-log-max nil)                      ;; disable message logging
   (lsp-log-io nil)                       ;; debug only
   (lsp-auto-guess-root t)                ;; auto guess root
   (lsp-keep-workspace-alive nil)         ;; auto kill lsp server
