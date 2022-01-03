@@ -8,8 +8,8 @@
   :init
   (use-package dap-java :ensure nil)
   :hook ((java-mode . lsp-deferred))
-  :custom
-  (c-basic-offset 2)
+  ;; :custom
+  ;; (c-basic-offset 2) ;; The indentation configuration
   :config
   (setq lsp-java-jdt-download-url "https://download.eclipse.org/jdtls/milestones/1.7.0/jdt-language-server-1.7.0-202112161541.tar.gz")
   ;; (setq lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
