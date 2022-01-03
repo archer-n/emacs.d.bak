@@ -21,7 +21,7 @@
                   company-dabbrev-ignore-case t)
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay 0)
+  (company-idle-delay 0.2)
   ;; Easy navigation to candidates with M-<n>
   (company-show-quick-access t)
   (company-require-match nil)

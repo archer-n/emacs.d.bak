@@ -11,7 +11,7 @@
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
 
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
+(let ((normal-gc-cons-threshold (* 256 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
   (add-hook 'emacs-startup-hook
@@ -61,6 +61,7 @@
 (require 'init-web)
 (require 'init-yaml)
 (require 'init-java)
+(require 'init-php)
 (require 'init-translate)
 (require 'init-beancount)
 (require 'init-rss)

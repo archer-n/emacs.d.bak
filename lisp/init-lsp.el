@@ -9,14 +9,21 @@
   (unless (derived-mode-p 'emacs-lisp-mode)
     (lsp-deferred)))
 
+;; Use plists for deserialization.
+(setenv "LSP_USE_PLISTS" "t")
+
 (use-package lsp-mode
   :ensure t
+  :init
+  (advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
   :hook ((prog-mode . dotfiles--lsp-deferred-if-supported)
          (lsp-mode . lsp-enable-which-key-integration))
   :bind (:map lsp-mode-map
          ("C-c d" . lsp-describe-thing-at-point)
          ([remap xref-find-references] . lsp-find-references)
          ("C-." . lsp-find-implementation))
+  :config
+  (setq read-process-output-max (* 1 1024 1024)) ;; 1mb
   :custom
   (lsp-keymap-prefix "C-c l")
   (lsp-diagnostics-disabled-modes '(js-mode))

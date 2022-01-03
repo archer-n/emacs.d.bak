@@ -257,7 +257,6 @@
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
   :custom
   (org-pomodoro-keep-killed-pomodoro-time t))
-(org-download-enable)
 
 (use-package org-download
   :init
