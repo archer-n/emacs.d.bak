@@ -23,7 +23,7 @@
          ([remap xref-find-references] . lsp-find-references)
          ("C-." . lsp-find-implementation))
   :config
-  (setq read-process-output-max (* 1 1024 1024)) ;; 1mb
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
   :custom
   (lsp-keymap-prefix "C-c l")
   (lsp-diagnostics-disabled-modes '(js-mode))
