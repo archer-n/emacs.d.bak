@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; Environment
-(when (or (memq window-system '(mac ns x))
+(when (or (memq window-system '(mac ns x pgtk))
           (unless (memq system-type '(ms-dos windows-nt))
             (daemonp)))
   (use-package exec-path-from-shell
