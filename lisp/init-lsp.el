@@ -25,6 +25,7 @@
   :config
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   :custom
+  (lsp-modeline-workspace-status-enable nil)
   (lsp-keymap-prefix "C-c l")
   (lsp-diagnostics-disabled-modes '(js-mode))
   (lsp-enable-imenu nil)                 ;; disable imenu

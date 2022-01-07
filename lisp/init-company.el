@@ -15,10 +15,10 @@
          ([backtab] . company-select-previous-or-abort)
          ("C-d" . company-show-company-show-doc-buffer))
   :config
-  (setq-default company-dabbrev-other-buffers 'all
+  (setq-default company-dabbrev-other-buffers nil
                   company-tooltip-align-annotations t
                   company-dabbrev-downcase nil
-                  company-dabbrev-ignore-case t)
+                  company-dabbrev-ignore-case nil)
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.2)
