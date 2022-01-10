@@ -62,6 +62,7 @@
 (require 'init-yaml)
 (require 'init-java)
 (require 'init-php)
+(require 'init-compile)
 (require 'init-translate)
 (require 'init-beancount)
 (require 'init-rss)

@@ -23,5 +23,7 @@
   (setq lsp-java-content-provider-preferred "fernflower")
   (setq lsp-java-inhibit-message t))
 
+(use-package mvn)
+
 (provide 'init-java)
 ;;; init-java.el ends here
