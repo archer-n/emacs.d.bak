@@ -24,6 +24,7 @@
          ("C-." . lsp-find-implementation))
   :config
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
+  (setq lsp-lens-enable nil)
   :custom
   (lsp-modeline-workspace-status-enable nil)
   (lsp-keymap-prefix "C-c l")
@@ -45,6 +46,7 @@
   (lsp-auto-guess-root t)                ;; auto guess root
   (lsp-keep-workspace-alive nil)         ;; auto kill lsp server
   (lsp-eldoc-enable-hover nil)           ;; disable eldoc hover
+
   :init
    ;; Enable LSP in org babel
     ;; https://github.com/emacs-lsp/lsp-mode/issues/377

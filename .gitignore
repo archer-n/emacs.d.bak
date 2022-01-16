@@ -56,3 +56,8 @@ site-lisp/package/
 /eln-cache/
 /eclipse.jdt.ls/
 /workspace/
+/.log/
+/.dap-breakpoints
+/lsp-cache/
+/multisession/
+/projects

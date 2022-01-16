@@ -60,6 +60,7 @@
 (require 'init-javascript)
 (require 'init-web)
 (require 'init-yaml)
+(require 'wxml-mode)
 (require 'init-java)
 (require 'init-php)
 (require 'init-compile)

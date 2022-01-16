@@ -4,3 +4,6 @@
 [submodule "site-lisp/insert-translated-name"]
 	path = site-lisp/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
+[submodule "site-lisp/wxml-mode"]
+	path = site-lisp/wxml-mode
+	url = git@github.com:archer-n/wxml-mode.git
