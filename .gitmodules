@@ -7,3 +7,6 @@
 [submodule "site-lisp/wxml-mode"]
 	path = site-lisp/wxml-mode
 	url = git@github.com:archer-n/wxml-mode.git
+[submodule "site-lisp/auto-save"]
+	path = site-lisp/auto-save
+	url = https://github.com/manateelazycat/auto-save.git
