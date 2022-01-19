@@ -48,6 +48,7 @@
 (require 'init-minibuffer)
 (require 'init-ibuffer)
 (require 'init-tools)
+(require 'init-auto-save)
 (require 'init-org)
 (require 'init-plantuml)
 (require 'init-git)
