@@ -8,6 +8,7 @@
   :init
   (use-package dap-java :ensure nil)
   :hook ((java-mode . (lambda ()
+                        (setq-local company-backends '(company-capf))
                         (setq-local c-basic-offset 2) ;; The indentation configuration
                         (setq-local company-idle-delay 0.2)
                         (setq-local company-minimum-prefix-length 3)))

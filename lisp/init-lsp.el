@@ -25,6 +25,7 @@
   :config
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-lens-enable nil)
+  (setq lsp-completion-provider :none)
   :custom
   (lsp-modeline-workspace-status-enable nil)
   (lsp-keymap-prefix "C-c l")
@@ -77,8 +78,8 @@
                             (upcase ,lang))))))))
 
     (defvar org-babel-lang-list
-      '("go" "python" "ipython" "ruby" "js" "css" "sass" "C" "rust" "java" "cpp" "c++" "shell"))
-    
+      '("go" "python" "ipython" "ruby" "js" "css" "sass" "C" "rust" "java" "cpp" "c++" "shell" "sql"))
+
     (dolist (lang org-babel-lang-list)
       (eval `(lsp-org-babel-enable ,lang))))
 
