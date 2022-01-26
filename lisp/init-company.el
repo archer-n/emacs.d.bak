@@ -25,7 +25,7 @@
                 company-dabbrev-ignore-case t)
 
   ;; Customize company backends.
-  (setq-default company-backends '((:separate company-capf company-dabbrev-code company-dabbrev company-files :with company-yasnippet )))
+  (setq-default company-backends '((:separate company-files company-capf company-dabbrev-code company-dabbrev )))
 
   ;; Remove duplicate candidate.
   (add-to-list 'company-transformers #'delete-dups)

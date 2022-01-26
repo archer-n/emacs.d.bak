@@ -19,13 +19,15 @@
 
 (with-eval-after-load 'js
     (define-key js-mode-map (kbd "M-.") nil)
+    (define-key js-mode-map (kbd "C-j") 'c-indent-new-comment-line)
     (define-key js-mode-map (kbd "C-c C-f") 'eslint-fix-current-file))
 
 (use-package typescript-mode
   :config
   (setq-default typescript-indent-level 2)
   :bind (:map typescript-mode-map
-              ("C-c C-f" . 'eslint-fix-current-file)))
+              ("C-c C-f" . 'eslint-fix-current-file)
+              ("C-j" . 'c-indent-new-comment-line)))
 
 (use-package add-node-modules-path
   :hook (typescript-mode js-mode))
