@@ -45,6 +45,7 @@
 (require 'init-editing-utils)
 (require 'init-windows)
 (require 'init-recentf)
+(require 'init-dired)
 (require 'init-minibuffer)
 (require 'init-ibuffer)
 (require 'init-tools)
