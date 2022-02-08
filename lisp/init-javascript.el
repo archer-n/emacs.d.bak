@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+
+(use-package json-mode)
+
 (setq-default js-indent-level 2)
 (setq-default js2-bounce-indent-p nil)
 ;; In Emacs >= 25, the following is an alias for js-indent-level anyway
