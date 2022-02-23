@@ -6,7 +6,7 @@
 ;;; Code:
 (defun dotfiles--lsp-deferred-if-supported ()
   "Run `lsp-deferred' if it's a supported mode."
-  (unless (or (derived-mode-p 'emacs-lisp-mode) (derived-mode-p 'java-mode))
+  (unless (derived-mode-p 'emacs-lisp-mode)
     (lsp-deferred)))
 
 ;; Use plists for deserialization.
