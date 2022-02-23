@@ -34,14 +34,17 @@
                                            "--add-opens java.base/java.lang=ALL-UNNAMED"))))
       (setenv "CLASSPATH" cp))))
 
-(setcdr   (assq 'java-mode eglot-server-programs) #'my-eglot-eclipse-jdt-contact)
-
-(add-hook 'java-mode-hook 'eglot-ensure)
 
 (add-hook 'java-mode-hook (lambda ()
                             (setq-local c-basic-offset 2) ;; The indentation configuration
                             (setq-local tab-width 2) ;; The indentation configuration
                             (setq-local company-backends '(company-capf))))
+
+(setcdr   (assq 'java-mode eglot-server-programs) #'my-eglot-eclipse-jdt-contact)
+
+(add-hook 'java-mode-hook 'eglot-ensure)
+
+
 
 ;; ----------------------------------------------------------------------------------------------------
 
@@ -61,6 +64,12 @@
 ;;   (setq lsp-java-format-settings-profile "GoogleStyle")
 ;;   (let ((lombok-jar-path (expand-file-name "~/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar")))
 ;;     (setq lsp-java-vmargs (list
+;;                            "-XX:+UseParallelGC"
+;;                            "-XX:GCTimeRatio=4"
+;;                            "-XX:AdaptiveSizePolicyWeight=90"
+;;                            "-Dsun.zip.disableMemoryMapping=true"
+;;                            "-Xmx8G"
+;;                            "-Xms100m"
 ;;                            (concat "-javaagent:" lombok-jar-path))))
 
 ;;   (setq lsp-java-trace-server "messages"
@@ -68,6 +77,7 @@
 ;;         lsp-java-inhibit-message t
 ;;         ;; https://github.com/dgileadi/vscode-java-decompiler
 ;;         lsp-java-content-provider-preferred "fernflower"))
+
 
 (use-package mvn)
 
