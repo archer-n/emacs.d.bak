@@ -61,3 +61,6 @@ site-lisp/package/
 /lsp-cache/
 /multisession/
 /projects
+/eglot-eclipse-jdt-cache/
+/pyim/
+/request/

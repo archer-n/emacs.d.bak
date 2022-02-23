@@ -70,6 +70,7 @@
 (require 'init-translate)
 (require 'init-beancount)
 (require 'init-rss)
+(require 'init-pyim)
 (provide 'init)
 
 ;; Local Variables:
