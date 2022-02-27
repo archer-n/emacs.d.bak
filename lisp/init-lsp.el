@@ -86,5 +86,9 @@
 
 (use-package dap-mode :after lsp-mode :config (dap-auto-configure-mode))
 
+
+;; vue3
+(require 'lsp-volar)
+
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
