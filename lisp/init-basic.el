@@ -76,5 +76,8 @@
       read-char-choice-use-read-key t)
 
 
+;; alter
+(setq-default alert-default-style 'libnotify)
+
 (provide 'init-basic)
 ;;; init-basic.el ends here
